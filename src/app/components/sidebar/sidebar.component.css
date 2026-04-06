@@ -1,0 +1,125 @@
+/* --- SIDEBAR BASE --- */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background-color: var(--primary-color);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Animación suave del ancho */
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1100;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+  overflow-x: hidden; /* Evita scroll horizontal durante la animación */
+}
+
+/* Estado Colapsado */
+.sidebar.collapsed {
+  width: 70px;
+}
+
+/* --- HEADER --- */
+.sidebar-header {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Corregido: antes decía 'b' */
+  min-height: 80px;
+}
+
+.logo-text {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  white-space: nowrap;
+}
+
+.logo-text span {
+  color: #4cc9f0; /* Color de acento para 'Booking' */
+}
+
+/* --- NAVEGACIÓN --- */
+.sidebar-nav {
+  flex: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.icon {
+  font-size: 1.4rem;
+  min-width: 40px; /* Asegura que el icono siempre esté centrado en el estado colapsado */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.label {
+  font-weight: 500;
+  margin-left: 10px;
+  transition: opacity 0.2s ease;
+}
+
+/* --- FOOTER Y BOTONES --- */
+.sidebar-footer {
+  padding: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.back-item {
+  background-color: rgba(255, 255, 255, 0.05);
+  margin-top: auto;
+}
+
+.toggle-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.2rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* --- MANEJO DE VISIBILIDAD AL COLAPSAR --- */
+.sidebar.collapsed .label,
+.sidebar.collapsed .logo-area {
+  opacity: 0;
+  pointer-events: none;
+  display: none; /* Esto oculta el texto completamente cuando se cierra */
+}
+
+.sidebar.collapsed .sidebar-header {
+  justify-content: center; /* Centra el botón de flecha cuando está cerrado */
+  padding: 20px 0;
+}

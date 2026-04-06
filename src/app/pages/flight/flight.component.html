@@ -1,0 +1,43 @@
+
+<div class="main-layout" >
+  <app-navbar></app-navbar>
+
+  <main class="main-container">
+    <div class="content-wrapper">
+
+      <section class="search-section">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" placeholder="Busqueda por destino" class="search-input">
+          <button class="search-btn">Buscar</button>
+        </div>
+      </section>
+
+      <div class="flight-list">
+        <h2 class="list-title">Vuelos Disponibles</h2>
+
+        <div class="flight-balloon" *ngFor="let flight of flights">
+          <div class="balloon-content">
+            <div class="route">
+              <span class="city">{{ flight.origin }}</span>
+              <span class="plane-icon">✈</span>
+              <span class="city">{{ flight.destination }}</span>
+            </div>
+            <div class="date-info">
+              <span class="label">Salida:</span>
+              <span class="value">{{ flight.leavedDate }}</span>
+
+          </div>
+            </div>
+
+          <div class="balloon-action">
+
+              <span class="value">{{ flight.flightStatus    }}      </span>
+            <button class="book-btn" (click)="search(flight.flightNumber)">Reservar</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>

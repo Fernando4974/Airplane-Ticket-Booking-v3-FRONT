@@ -1,0 +1,109 @@
+:host {
+  --primary-color: #101950;
+  --error-color: #f44336;
+  --text-main: #333;
+}
+#title{
+  font-size: 300%;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  background-color: #ffffff;
+  box-shadow: 0 10px 3px rgba(0,0,0,0.1);
+  height: 60px;
+  /* border-bottom: solid 2px #101950; */
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #1a73e8;
+}
+img{
+  width: 100px;
+  border-radius: 20%;
+}
+.nav-name {
+  font-weight: 600;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.logout-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: 1px solid #f5c6cb;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+/* Tablets (hasta 768px) */
+@media (max-width: 768px) {
+  #title{
+    font-size: 200%;
+  }
+  .main-container {
+    padding: 30px 15px;
+  }
+  .search-section {
+    margin-bottom: 40px;
+  }
+  .logout-btn {
+    gap: 30px;
+  }
+  .logout-btn {
+ transform: scale(0.90);
+  }
+  img {
+    max-width: 60px; /* Reducimos el icono */
+  }
+  label {
+    font-size: 1.1rem;
+  }
+}
+
+/* Móviles (hasta 480px) */
+@media (max-width: 480px) {
+    #title{
+    font-size: 100%;
+  }
+  .search-wrapper {
+    padding: 5px 15px;
+  }
+  .main-search {
+    font-size: 1rem;
+    padding: 8px;
+  }
+  .logout-btn {
+    gap: 15px; /* Muy poco espacio entre botones */
+  }
+  .logout-btn {
+
+ transform: scale(0.70);
+  }
+  img {
+    max-width: 50px; /* Icono pequeño para móvil */
+  }
+  label {
+    font-size: 0.95rem;
+    margin-top: 10px;
+  }
+}

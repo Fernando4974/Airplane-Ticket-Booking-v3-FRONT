@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+
+<div class="main-container">
+  <div class="search-section">
+    <div class="search-wrapper">
+      <input type="text" placeholder="¿A donde quieres ir hoy?" class="main-search">
+      <button class="search-icon-btn">✈</button>
+    </div>
+  </div>
+
+  <div class="buttons-grid">
+        <div class="menu-item">
+      <button (click)="flight()" type="button" class="btn-action">
+        <img class="icon-img" src="flight.png" alt="Productos">
+      </button>
+      <label>Vuelos</label>
+    </div>
+    <div class="menu-item">
+      <button type="button" class="btn-action">
+        <img class="icon-img" src="ticket.png" (click)="myBookings()" alt="Punto de Venta">
+      </button>
+      <label>Mis reservas</label>
+    </div>
+
+    <div class="menu-item">
+      <button type="button" class="btn-action">
+        <img class="icon-img" src="set.png" alt="Productos">
+      </button>
+      <label>Ajsutes</label>
+    </div>
+
+  </div>
+</div>

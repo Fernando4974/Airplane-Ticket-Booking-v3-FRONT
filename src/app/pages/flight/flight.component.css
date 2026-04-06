@@ -1,0 +1,148 @@
+/* --- LAYOUT Y CONTENEDORES --- */
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  min-height: 90vh;
+}
+
+.main-layout.sidebar-collapsed {
+  margin-left: 70px;
+}
+
+.main-container {
+  flex: 1;
+  padding: 30px 20px;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+}
+
+.content-wrapper {
+  width: 100%;
+  max-width: 900px; /* Alinea búsqueda y lista al mismo ancho */
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* --- BARRA DE BÚSQUEDA (ARRIBA) --- */
+.search-section {
+  width: 100%;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 8px 15px;
+  border-radius: 50px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eee;
+}
+
+.search-icon {
+  margin-left: 10px;
+  font-size: 1.2rem;
+  color: #999;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 12px 15px;
+  font-size: 1.1rem;
+  color: var(--text-main);
+}
+
+.search-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.search-btn:hover {
+  transform: scale(1.05);
+  background-color: #1d2b80;
+}
+
+/* --- LISTA DE VUELOS (GLOBOS) --- */
+.flight-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.list-title {
+  color: var(--primary-color);
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.flight-balloon {
+  background: white;
+  border-radius: 100px; /* Forma de píldora total */
+  padding: 18px 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.flight-balloon:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(16, 25, 80, 0.1);
+  border-color: var(--primary-color);
+}
+
+.route {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--primary-color);
+}
+
+.book-btn {
+  background-color: var(--primary-color);
+  color: rgb(0, 190, 73);
+  border: none;
+  padding: 12px 35px;
+  border-radius: 50px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .main-layout, .main-layout.sidebar-collapsed {
+    margin-left: 0;
+  }
+
+  .search-box {
+    padding: 5px 10px;
+  }
+
+  .search-input {
+    font-size: 0.9rem;
+  }
+
+  .flight-balloon {
+    flex-direction: column;
+    border-radius: 30px;
+    padding: 25px;
+    text-align: center;
+    gap: 15px;
+  }
+}

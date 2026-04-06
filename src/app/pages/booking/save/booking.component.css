@@ -1,0 +1,114 @@
+/* Contenedor principal con efecto de tarjeta */
+.booking-container {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    color: #333;
+}
+
+h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+/* Sección de información del vuelo */
+.flight-summary {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.flight-summary p {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+}
+
+/* Controles del contador de tickets */
+.ticket-selection {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.counter-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.counter-group button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    background: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.counter-group button:hover:not(:disabled) {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.counter-group button:disabled {
+    background: #eee;
+    cursor: not-allowed;
+    color: #aaa;
+}
+
+.counter-group input {
+    width: 60px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    background: transparent;
+}
+
+/* Quitar flechas del input number por estética */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Resumen y Botón */
+.payment-summary {
+    text-align: center;
+    border-top: 1px solid #eee;
+    padding-top: 1.5rem;
+}
+
+.payment-summary h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: #202124;
+}
+
+.btn-confirm {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-confirm:hover {
+    background: #1557b0;
+}

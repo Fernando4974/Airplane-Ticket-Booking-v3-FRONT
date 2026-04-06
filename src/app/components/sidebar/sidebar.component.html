@@ -1,0 +1,34 @@
+<div class="sidebar" [class.collapsed]="sidebarService.isCollapsed()">
+  <div class="sidebar-header">
+    <div class="logo-area" *ngIf="!sidebarService.isCollapsed()">
+      <span class="logo-text">Villa<span>Booking</span></span>
+    </div>
+    <button class="toggle-btn" (click)="toggleSidebar()">
+      {{ sidebarService.isCollapsed() ? '→' : '←' }}
+    </button>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a routerLink="/flights" routerLinkActive="active" class="nav-item">
+      <span class="icon">✈</span>
+      <span class="label" *ngIf="!sidebarService.isCollapsed()">Vuelos</span>
+    </a>
+
+    <a routerLink="/reservations" routerLinkActive="active" class="nav-item">
+      <span class="icon">🎟</span>
+      <span class="label" *ngIf="!sidebarService.isCollapsed()">Mis Reservas</span>
+    </a>
+
+    <a routerLink="/settings" routerLinkActive="active" class="nav-item">
+      <span class="icon">⚙</span>
+      <span class="label" *ngIf="!sidebarService.isCollapsed()">Ajustes</span>
+    </a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <a (click)="goBack()" class="nav-item back-item">
+      <span class="icon">↩</span>
+      <span class="label" *ngIf="!sidebarService.isCollapsed()">Volver</span>
+    </a>
+  </div>
+</div>

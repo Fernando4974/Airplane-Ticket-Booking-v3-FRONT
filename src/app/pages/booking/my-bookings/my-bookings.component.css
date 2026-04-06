@@ -1,0 +1,161 @@
+/* --- LAYOUT GENERAL --- */
+.main-container {
+    background-color: #f4f7f9;
+    min-height: 100vh;
+    padding-top: 20px;
+}
+
+.content-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- SECCIÓN DE BÚSQUEDA --- */
+.search-section {
+    margin-bottom: 30px;
+}
+
+.search-box {
+    display: flex;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    align-items: center;
+    gap: 10px;
+}
+
+.search-input {
+    border: none;
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.search-btn {
+    background: #1a73e8;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.search-btn:hover { background: #1557b0; }
+
+/* --- TÍTULOS --- */
+.list-title {
+    color: #202124;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    border-left: 5px solid #1a73e8;
+    padding-left: 15px;
+}
+
+/* --- TARJETAS (BALLOONS) --- */
+.flight-balloon {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: transform 0.2s;
+}
+
+.flight-balloon:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.balloon-content {
+    flex-grow: 1;
+}
+
+.route {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.city {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #1a73e8;
+}
+
+/* BADGES DE ESTADO */
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.pending { background: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+.confirmed { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+
+/* INFO DE FECHAS */
+.date-info {
+    font-size: 0.9rem;
+    color: #5f6368;
+}
+
+.label { font-weight: bold; margin-right: 5px; }
+.value { color: #3c4043; }
+
+/* ACCIONES (DERECHA) */
+.balloon-action {
+    text-align: right;
+    border-left: 1px solid #eee;
+    padding-left: 20px;
+    min-width: 150px;
+}
+
+.price-total {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #202124;
+    margin-bottom: 10px;
+}
+
+/* PAGINACIÓN */
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 40px 0;
+}
+
+.pagination-controls button {
+    padding: 10px 20px;
+    border: none;
+    background: white;
+    color: #1a73e8;
+    border: 1px solid #1a73e8;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.pagination-controls button:hover:not(:disabled) {
+    background: #1a73e8;
+    color: white;
+}
+
+.pagination-controls button:disabled {
+    color: #ccc;
+    border-color: #eee;
+    cursor: not-allowed;
+}

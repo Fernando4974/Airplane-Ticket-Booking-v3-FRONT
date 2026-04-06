@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+
+<div class="booking-container" *ngIf="flight; else loading">
+  <h2>Confirmar Reserva</h2>
+
+  <div class="flight-summary">
+    <p><strong>Numero de Vuelo:</strong> {{ flight.flightNumber }}</p>
+     <p><strong>Ruta:</strong> {{ flight.origin }} --------> {{ flight.destination }}</p>
+    <p><strong>Salida:</strong> {{ flight.arrivedDate }}</p>
+    <p><strong>Llegada:</strong> {{ flight.leavedDate }}</p>
+    <p><strong>Duracion:</strong> {{ getDuration(flight.arrivedDate, flight.leavedDate)}}</p>
+       <p><strong>Precio Unitario:</strong> ${{ flight.price | number }} <strong>COP</strong></p>
+  </div>
+
+  <div class="ticket-selection">
+    <label>Cantidad de Pasajeros:</label>
+    <div class="counter-group">
+      <button type="button" (click)="decreaseTickets()" [disabled]="ticketCount <= 1">−</button>
+      <input type="number" [(ngModel)]="ticketCount" (change)="updateTotal()" name="tickets" readonly>
+      <button type="button" (click)="increaseTickets()"
+              [disabled]="ticketCount >= (flight.totalSeats - flight.occupiedSeats)">+</button>
+    </div>
+    <small class="seats-available">
+      Asientos disponibles: {{ (flight.totalSeats - flight.occupiedSeats) }}
+    </small>
+  </div>
+
+  <div class="payment-summary">
+    <h3>Total a Pagar: <br>COP ${{ totalPrice | number }}</h3>
+    <button class="btn-confirm" (click)="submitBooking()">Confirmar Reserva</button>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="booking-container loading-state">
+    <div class="spinner"></div>
+    <p>Buscando disponibilidad del vuelo...</p>
+  </div>
+</ng-template>
+<app-alert *ngIf="showAlert" [message]="'Reserva Creada \n Realize el pago para Confirmar su reserva'"></app-alert>

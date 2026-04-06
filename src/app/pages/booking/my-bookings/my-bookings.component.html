@@ -1,0 +1,56 @@
+<div class="main-layout">
+  <app-navbar></app-navbar>
+
+  <main class="main-container">
+    <div class="content-wrapper">
+
+      <section class="search-section">
+        <div class="search-box">
+          <span class="search-icon">🆔</span>
+          <input type="text" placeholder="Filtrar por código de reserva" class="search-input" #searchInput>
+          <button class="search-btn">Filtrar</button>
+        </div>
+      </section>
+
+      <div class="flight-list">
+        <h2 class="list-title">Mis Reservas</h2>
+
+        <div *ngIf="loading" class="loading-msg">Cargando tus viajes...</div>
+
+        <div class="flight-balloon" *ngFor="let booking of bookings">
+          <div class="balloon-content">
+            <div class="route">
+              <span class="city">Vuelo: {{ booking.flightNumber }}</span>
+              <span class="status-badge" [ngClass]="booking.bookingStatus.toLowerCase()">
+                {{ booking.bookingStatus }}
+              </span>
+            </div>
+            <div class="date-info">
+              <span class="label">Fecha Reserva:</span>
+              <span class="value">{{ booking.bookingDate | date:'dd/MM/yyyy HH:mm' }}</span>
+              <br>
+              <span class="label">Tickets:</span>
+              <span class="value">{{ booking.ticketCount }}</span>
+            </div>
+          </div>
+
+          <div class="balloon-action">
+            <span class="price-total">${{ booking.totalAmount | number }}</span>
+            <!-- <button class="book-btn detail-btn" (click)="viewDetails(booking.id)">Ver Tickets</button> -->
+          </div>
+        </div>
+
+        <div class="pagination-controls" *ngIf="totalPages > 1">
+          <button [disabled]="currentPage === 0" (click)="changePage(currentPage - 1)">Anterior</button>
+          <span class="page-info">Página {{ currentPage + 1 }} de {{ totalPages }}</span>
+          <button [disabled]="isLastPage" (click)="changePage(currentPage + 1)">Siguiente</button>
+        </div>
+
+        <div *ngIf="!loading && bookings.length === 0" class="empty-state">
+          <p>No tienes reservas registradas aún.</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
